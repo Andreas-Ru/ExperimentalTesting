@@ -33,11 +33,9 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run Unit Tests
-        continue-on-error: true # remove this line after finishing task
         run: ./gradlew testDebugUnitTest
 
       - name: Run Instrumented (UI) Tests
-        continue-on-error: true # remove this line after finishing task
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
@@ -47,7 +45,7 @@ jobs:
           script: ./gradlew connectedDebugAndroidTest
 
       - name: Upload Test Reports
-        if: always()
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: test-reports
