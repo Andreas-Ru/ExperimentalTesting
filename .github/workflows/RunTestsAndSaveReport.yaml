@@ -2,7 +2,8 @@ name: Run Tests and save reports
 
 on:
   push:
-    branches: [dev]
+    branches:
+          - dev
 
 jobs:
   test:
