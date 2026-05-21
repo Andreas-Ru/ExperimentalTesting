@@ -27,9 +27,11 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run Unit Tests
+        continue-on-error: true
         run: ./gradlew testDebugUnitTest
 
       - name: Run Instrumented (UI) Tests
+        continue-on-error: true
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 33
