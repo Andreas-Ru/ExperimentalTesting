@@ -27,17 +27,16 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run Unit Tests
-        continue-on-error: true
+        continue-on-error: true # remove this line after finishing task
         run: ./gradlew testDebugUnitTest
 
       - name: Run Instrumented (UI) Tests
-        continue-on-error: true
+        continue-on-error: true # remove this line after finishing task
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 33
+          api-level: 29
           target: google_apis
           arch: x86_64
-          force-avd-creation: false
           disable-animations: true
           script: ./gradlew connectedDebugAndroidTest
 
