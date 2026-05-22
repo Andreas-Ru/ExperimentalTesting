@@ -1,13 +1,14 @@
 name: Run tests on keyword
 
 on:
-  issue_comment:
-    types: [ created ]
+  push:
+    branches:
+      - dev
 
 jobs:
-  execute-command:
-    if: ${{ github.event.issue.pull_request && contains(github.event.comment.body, '/run-tests')}}
+  test:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
 
     steps:
       - name: Enable KVM
@@ -18,9 +19,6 @@ jobs:
 
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          # needs to check out PR commit otherwise default branch will be used
-          ref: refs/pull/${{ github.event.issue.number }}/head
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
