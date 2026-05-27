@@ -4,6 +4,11 @@ plugins {
     alias(libs.plugins.screenshot)
     alias (libs.plugins.cyclonedx.bom)
 }
+allprojects {
+    tasks.cyclonedxDirectBom {
+        includeConfigs.set(listOf("releaseRuntimeClasspath"))
+    }
+}
 
 android {
     namespace = "com.example.experimentaltesting"
