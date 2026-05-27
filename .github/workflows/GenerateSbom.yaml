@@ -1,6 +1,9 @@
 name: Generate CycloneDX SBOM
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -30,5 +33,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: android-app-sbom
-          path: '**/build/reports/bom.json'
+          path: 'app/build/reports/bom.json'
           retention-days: 14
