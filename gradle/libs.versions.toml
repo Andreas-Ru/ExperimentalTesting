@@ -9,6 +9,7 @@ activityCompose = "1.8.0"
 kotlin = "2.2.10"
 composeBom = "2026.02.01"
 screenshot = "0.0.1-alpha14"
+cyclonedx = "3.2.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,3 +33,4 @@ androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling"}
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 screenshot = { id = "com.android.compose.screenshot", version.ref = "screenshot"}
+cyclonedx-bom = { id = "org.cyclonedx.bom", version.ref = "cyclonedx" }
